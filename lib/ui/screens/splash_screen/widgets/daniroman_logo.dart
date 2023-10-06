@@ -10,7 +10,7 @@ class DaniRomanLogo extends StatelessWidget {
     return const Column(
       children: [
         Text(
-          'una app de:',
+          'Una app de:',
           style: TextStyle(
             color: Color(0xFF697886),
           ),

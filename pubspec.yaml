@@ -1,0 +1,51 @@
+name: radio_station
+description: RadioStation App
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  equatable: ^2.0.5
+  file: ^7.0.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.3
+  freezed_annotation: ^2.4.1
+  get_it: ^7.6.4
+  http: ^1.1.0
+  injectable: ^2.3.1
+  page_transition: ^2.1.0
+  just_audio: ^0.9.35
+
+dev_dependencies:
+  bloc_test: ^9.1.4
+  build_runner: ^2.4.6
+  faker: ^2.1.0
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.3
+  golden_toolkit: ^0.15.0
+  injectable_generator: ^2.4.0
+  mockito: ^5.4.2
+  test: ^1.24.3
+
+
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Fredoka
+      fonts:
+        - asset: assets/fonts/Fredoka/Fredoka-Regular.ttf
+        - asset: assets/fonts/Fredoka/Fredoka-Bold.ttf
+          weight: 700
+    - family: KuaiLe
+      fonts:
+        - asset: assets/fonts/KuaiLe/KuaiLe-Regular.ttf
+          weight: 400
+  assets:
+    - assets/
+    - assets/splash_screen/
+    - assets/common/

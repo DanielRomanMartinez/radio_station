@@ -1,0 +1,193 @@
+-- Merging decision tree log ---
+application
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:4:4-35:19
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.core:core:1.7.0] /Users/dani/.gradle/caches/transforms-3/4cd0d41d799bf161ecacf5126380e7a9/transformed/core-1.7.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.7.0] /Users/dani/.gradle/caches/transforms-3/4cd0d41d799bf161ecacf5126380e7a9/transformed/core-1.7.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dani/.gradle/caches/transforms-3/7e349335b962b9ab95b7dc6d2e0c0c7f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dani/.gradle/caches/transforms-3/7e349335b962b9ab95b7dc6d2e0c0c7f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.7.0] /Users/dani/.gradle/caches/transforms-3/4cd0d41d799bf161ecacf5126380e7a9/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+	android:name
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml
+manifest
+ADDED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:1:1-36:12
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:1:1-36:12
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:1:1-36:12
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:1:1-36:12
+MERGED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:1:1-36:12
+MERGED from [:just_audio] /Users/dani/Desktop/labhouse/radio_station/build/just_audio/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider_android] /Users/dani/Desktop/labhouse/radio_station/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:audio_session] /Users/dani/Desktop/labhouse/radio_station/build/audio_session/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/dani/.gradle/caches/transforms-3/b2f89827e0ea5bfbaf65dbaf8c67b430/transformed/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/6b01cbfc25791ba617abaafbe0817e4c/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.7] /Users/dani/.gradle/caches/transforms-3/0a6432e4fbc035dbc85ac74c939fea02/transformed/jetified-exoplayer-dash-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.7] /Users/dani/.gradle/caches/transforms-3/d6837b15a3715e235380dd9c4e31d432/transformed/jetified-exoplayer-hls-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7] /Users/dani/.gradle/caches/transforms-3/4d9eadb376107c23e5015f24ef8de506/transformed/jetified-exoplayer-smoothstreaming-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/dani/.gradle/caches/transforms-3/60718de2319d2d1c08fded95ccc5bccb/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/dani/.gradle/caches/transforms-3/3a29c5613aad48d725f72a9751962a98/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/dani/.gradle/caches/transforms-3/8a7eb0bc0c62f9e1ff57499b1be7ce23/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.media2:media2-common:1.2.1] /Users/dani/.gradle/caches/transforms-3/984e766f66b42261b561b2807f453c70/transformed/jetified-media2-common-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/dani/.gradle/caches/transforms-3/6afdaaaff22c6b939a4808f1c4d264e3/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/dani/.gradle/caches/transforms-3/a92bf033d82e06b19c0fda759e235b9f/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/dani/.gradle/caches/transforms-3/03913df190389e579d047f3603f67f7d/transformed/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.4.1] /Users/dani/.gradle/caches/transforms-3/9f7b372f5edfae68622e7a53c3830f56/transformed/media-1.4.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/dani/.gradle/caches/transforms-3/23e21ca6d96a7325cf4473d2cfb46250/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.7.0] /Users/dani/.gradle/caches/transforms-3/4cd0d41d799bf161ecacf5126380e7a9/transformed/core-1.7.0/AndroidManifest.xml:17:1-26:12
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.7] /Users/dani/.gradle/caches/transforms-3/52682e4538d8b26a5da417c7dfeaf3c9/transformed/jetified-exoplayer-datasource-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.7] /Users/dani/.gradle/caches/transforms-3/10aa45d6f57a0f82efadcd19f9fd6311/transformed/jetified-exoplayer-extractor-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.7] /Users/dani/.gradle/caches/transforms-3/ff3bdd6cd8ee2fc13060fdaaaf6793d7/transformed/jetified-exoplayer-decoder-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.7] /Users/dani/.gradle/caches/transforms-3/344362372739d583c2535ab7ae7b9e56/transformed/jetified-exoplayer-database-2.18.7/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/dani/.gradle/caches/transforms-3/061c5180c94a5e168b96819e3c8d6090/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dani/.gradle/caches/transforms-3/7e349335b962b9ab95b7dc6d2e0c0c7f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/dani/.gradle/caches/transforms-3/64a227bdf7404d3f5ae4e64138cb8f5e/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/dani/.gradle/caches/transforms-3/bfee36b399036727a2dbfaf9b266d586/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/dani/.gradle/caches/transforms-3/0796fb4e622dd0cf46c4cebc26e1031e/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/dani/.gradle/caches/transforms-3/29ae4e5eb14f489afe248fa6c1e66aa6/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/dani/.gradle/caches/transforms-3/5822d4d3be77efc060ad23821823e35c/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/dani/.gradle/caches/transforms-3/807712404ee4090a2df8c31d01ed3d90/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/dani/.gradle/caches/transforms-3/7bdbc802846584ec5a21117b4a70284e/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+	package
+		ADDED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:2:5-40
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:3:5-66
+MERGED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:3:5-66
+MERGED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:3:5-66
+	android:name
+		ADDED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml:3:22-64
+uses-sdk
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml
+MERGED from [:just_audio] /Users/dani/Desktop/labhouse/radio_station/build/just_audio/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:just_audio] /Users/dani/Desktop/labhouse/radio_station/build/just_audio/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/dani/Desktop/labhouse/radio_station/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/dani/Desktop/labhouse/radio_station/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:audio_session] /Users/dani/Desktop/labhouse/radio_station/build/audio_session/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:audio_session] /Users/dani/Desktop/labhouse/radio_station/build/audio_session/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/dani/.gradle/caches/transforms-3/b2f89827e0ea5bfbaf65dbaf8c67b430/transformed/multidex-2.0.0/AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/dani/.gradle/caches/transforms-3/b2f89827e0ea5bfbaf65dbaf8c67b430/transformed/multidex-2.0.0/AndroidManifest.xml:20:5-43
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/6b01cbfc25791ba617abaafbe0817e4c/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/6b01cbfc25791ba617abaafbe0817e4c/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.7] /Users/dani/.gradle/caches/transforms-3/0a6432e4fbc035dbc85ac74c939fea02/transformed/jetified-exoplayer-dash-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.7] /Users/dani/.gradle/caches/transforms-3/0a6432e4fbc035dbc85ac74c939fea02/transformed/jetified-exoplayer-dash-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.7] /Users/dani/.gradle/caches/transforms-3/d6837b15a3715e235380dd9c4e31d432/transformed/jetified-exoplayer-hls-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.7] /Users/dani/.gradle/caches/transforms-3/d6837b15a3715e235380dd9c4e31d432/transformed/jetified-exoplayer-hls-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7] /Users/dani/.gradle/caches/transforms-3/4d9eadb376107c23e5015f24ef8de506/transformed/jetified-exoplayer-smoothstreaming-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.7] /Users/dani/.gradle/caches/transforms-3/4d9eadb376107c23e5015f24ef8de506/transformed/jetified-exoplayer-smoothstreaming-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/dani/.gradle/caches/transforms-3/60718de2319d2d1c08fded95ccc5bccb/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/dani/.gradle/caches/transforms-3/60718de2319d2d1c08fded95ccc5bccb/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/dani/.gradle/caches/transforms-3/3a29c5613aad48d725f72a9751962a98/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/dani/.gradle/caches/transforms-3/3a29c5613aad48d725f72a9751962a98/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/dani/.gradle/caches/transforms-3/8a7eb0bc0c62f9e1ff57499b1be7ce23/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/dani/.gradle/caches/transforms-3/8a7eb0bc0c62f9e1ff57499b1be7ce23/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media2:media2-common:1.2.1] /Users/dani/.gradle/caches/transforms-3/984e766f66b42261b561b2807f453c70/transformed/jetified-media2-common-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media2:media2-common:1.2.1] /Users/dani/.gradle/caches/transforms-3/984e766f66b42261b561b2807f453c70/transformed/jetified-media2-common-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/dani/.gradle/caches/transforms-3/6afdaaaff22c6b939a4808f1c4d264e3/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/dani/.gradle/caches/transforms-3/6afdaaaff22c6b939a4808f1c4d264e3/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/dani/.gradle/caches/transforms-3/a92bf033d82e06b19c0fda759e235b9f/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/dani/.gradle/caches/transforms-3/a92bf033d82e06b19c0fda759e235b9f/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/dani/.gradle/caches/transforms-3/03913df190389e579d047f3603f67f7d/transformed/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/dani/.gradle/caches/transforms-3/03913df190389e579d047f3603f67f7d/transformed/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.4.1] /Users/dani/.gradle/caches/transforms-3/9f7b372f5edfae68622e7a53c3830f56/transformed/media-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.4.1] /Users/dani/.gradle/caches/transforms-3/9f7b372f5edfae68622e7a53c3830f56/transformed/media-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/dani/.gradle/caches/transforms-3/23e21ca6d96a7325cf4473d2cfb46250/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/dani/.gradle/caches/transforms-3/23e21ca6d96a7325cf4473d2cfb46250/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.7.0] /Users/dani/.gradle/caches/transforms-3/4cd0d41d799bf161ecacf5126380e7a9/transformed/core-1.7.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.7.0] /Users/dani/.gradle/caches/transforms-3/4cd0d41d799bf161ecacf5126380e7a9/transformed/core-1.7.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.7] /Users/dani/.gradle/caches/transforms-3/52682e4538d8b26a5da417c7dfeaf3c9/transformed/jetified-exoplayer-datasource-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.7] /Users/dani/.gradle/caches/transforms-3/52682e4538d8b26a5da417c7dfeaf3c9/transformed/jetified-exoplayer-datasource-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.7] /Users/dani/.gradle/caches/transforms-3/10aa45d6f57a0f82efadcd19f9fd6311/transformed/jetified-exoplayer-extractor-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.7] /Users/dani/.gradle/caches/transforms-3/10aa45d6f57a0f82efadcd19f9fd6311/transformed/jetified-exoplayer-extractor-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.7] /Users/dani/.gradle/caches/transforms-3/ff3bdd6cd8ee2fc13060fdaaaf6793d7/transformed/jetified-exoplayer-decoder-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.7] /Users/dani/.gradle/caches/transforms-3/ff3bdd6cd8ee2fc13060fdaaaf6793d7/transformed/jetified-exoplayer-decoder-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.7] /Users/dani/.gradle/caches/transforms-3/344362372739d583c2535ab7ae7b9e56/transformed/jetified-exoplayer-database-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.7] /Users/dani/.gradle/caches/transforms-3/344362372739d583c2535ab7ae7b9e56/transformed/jetified-exoplayer-database-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/dani/.gradle/caches/transforms-3/061c5180c94a5e168b96819e3c8d6090/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/dani/.gradle/caches/transforms-3/061c5180c94a5e168b96819e3c8d6090/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dani/.gradle/caches/transforms-3/7e349335b962b9ab95b7dc6d2e0c0c7f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/dani/.gradle/caches/transforms-3/7e349335b962b9ab95b7dc6d2e0c0c7f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/dani/.gradle/caches/transforms-3/64a227bdf7404d3f5ae4e64138cb8f5e/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/dani/.gradle/caches/transforms-3/64a227bdf7404d3f5ae4e64138cb8f5e/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/dani/.gradle/caches/transforms-3/bfee36b399036727a2dbfaf9b266d586/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/dani/.gradle/caches/transforms-3/bfee36b399036727a2dbfaf9b266d586/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/dani/.gradle/caches/transforms-3/0796fb4e622dd0cf46c4cebc26e1031e/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/dani/.gradle/caches/transforms-3/0796fb4e622dd0cf46c4cebc26e1031e/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/dani/.gradle/caches/transforms-3/29ae4e5eb14f489afe248fa6c1e66aa6/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/dani/.gradle/caches/transforms-3/29ae4e5eb14f489afe248fa6c1e66aa6/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/dani/.gradle/caches/transforms-3/5822d4d3be77efc060ad23821823e35c/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/dani/.gradle/caches/transforms-3/5822d4d3be77efc060ad23821823e35c/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/dani/.gradle/caches/transforms-3/807712404ee4090a2df8c31d01ed3d90/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/dani/.gradle/caches/transforms-3/807712404ee4090a2df8c31d01ed3d90/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/dani/.gradle/caches/transforms-3/7bdbc802846584ec5a21117b4a70284e/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/dani/.gradle/caches/transforms-3/7bdbc802846584ec5a21117b4a70284e/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/dani/Desktop/labhouse/radio_station/android/app/src/debug/AndroidManifest.xml
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/dani/.gradle/caches/transforms-3/b8d4a11b9da676125945c33013f4dbba/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/dani/.gradle/caches/transforms-3/60718de2319d2d1c08fded95ccc5bccb/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/dani/.gradle/caches/transforms-3/061c5180c94a5e168b96819e3c8d6090/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.7] /Users/dani/.gradle/caches/transforms-3/061c5180c94a5e168b96819e3c8d6090/transformed/jetified-exoplayer-common-2.18.7/AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from [com.google.android.exoplayer:exoplayer-core:2.18.7] /Users/dani/.gradle/caches/transforms-3/60718de2319d2d1c08fded95ccc5bccb/transformed/jetified-exoplayer-core-2.18.7/AndroidManifest.xml:24:22-76
+queries
+ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:24:5-34:15
+MERGED from [androidx.media:media:1.4.1] /Users/dani/.gradle/caches/transforms-3/9f7b372f5edfae68622e7a53c3830f56/transformed/media-1.4.1/AndroidManifest.xml:24:5-28:15
+MERGED from [androidx.media:media:1.4.1] /Users/dani/.gradle/caches/transforms-3/9f7b372f5edfae68622e7a53c3830f56/transformed/media-1.4.1/AndroidManifest.xml:24:5-28:15
+intent#action:name:android.media.browse.MediaBrowserService
+ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:25:9-27:18
+action#android.media.browse.MediaBrowserService
+ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:26:13-79
+	android:name
+		ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:26:21-76
+intent#action:name:androidx.media2.session.MediaSessionService
+ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:28:9-30:18
+action#androidx.media2.session.MediaSessionService
+ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:29:13-82
+	android:name
+		ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:29:21-79
+intent#action:name:androidx.media2.session.MediaLibraryService
+ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:31:9-33:18
+action#androidx.media2.session.MediaLibraryService
+ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:32:13-82
+	android:name
+		ADDED from [androidx.media2:media2-session:1.2.1] /Users/dani/.gradle/caches/transforms-3/a514c3c3a9cf5e26214f7c2ab804ef72/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:32:21-79

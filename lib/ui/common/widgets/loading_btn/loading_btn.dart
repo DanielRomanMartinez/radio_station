@@ -70,7 +70,9 @@ class _LoadingBtnState extends State<LoadingBtn>
             end: Alignment.bottomCenter,
             colors: [
               Color(0xFFF5897F),
-              Color.fromRGBO(237, 109, 196, 1),
+              Color(0xFFFF98A2),
+              Color(0xFFFFA9C8),
+              Color(0xFFFFBEF0),
             ],
           ),
         ),

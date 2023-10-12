@@ -58,7 +58,7 @@ class _ListRadioStationsState extends State<ListRadioStations> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(15),
+                                      borderRadius: BorderRadius.circular(10),
                                       child: Image.network(
                                         state.radioStations[index].image,
                                       ),

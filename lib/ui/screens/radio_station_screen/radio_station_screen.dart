@@ -4,11 +4,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_it/get_it.dart';
 import 'package:radio_station/application/bloc/audio_player/audio_player_bloc.dart';
+import 'package:radio_station/application/bloc/custom_bottom_navigation/custom_bottom_navigation_bloc.dart';
 import 'package:radio_station/domain/model/objects/radio_station.dart';
 import 'package:radio_station/ui/common/widgets/loading_btn/loading_btn.dart';
 import 'package:radio_station/ui/common/widgets/play_pause_btn/play_pause_btn.dart';
+import 'package:radio_station/ui/screens/home_screen/home_screen.dart';
 
 part 'widgets/audio_player/audio_player.dart';
 part 'widgets/audio_player/audio_player_components/radio_image.dart';
@@ -19,58 +22,32 @@ part 'widgets/audio_player/audio_player_components/waves/wave.dart';
 part 'widgets/audio_player/audio_player_components/waves/waves.dart';
 part 'widgets/audio_player/audio_player_components/waves/waves_painter.dart';
 
-class RadioStationScreenParameters {
+class RadioStationScreen extends StatelessWidget {
   final RadioStation radioStation;
 
-  RadioStationScreenParameters({
+  RadioStationScreen({
+    super.key,
     required this.radioStation,
   });
-}
 
-class RadioStationScreen extends StatefulWidget {
-  static const String routeName = '/radio-station';
-
-  const RadioStationScreen({
-    super.key,
-  });
-
-  @override
-  State<RadioStationScreen> createState() => _RadioStationScreenState();
-}
-
-class _RadioStationScreenState extends State<RadioStationScreen> {
   final AudioPlayerBloc _audioPlayerBloc =
       GetIt.instance.get<AudioPlayerBloc>();
 
-  late RadioStation radioStation;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final args = ModalRoute.of(context)!.settings.arguments
-          as RadioStationScreenParameters;
-      radioStation = args.radioStation;
-      _audioPlayerBloc.add(LoadAudioPlayer(radioStation: radioStation));
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  final CustomBottomNavigationBloc _customBottomNavigationBloc =
+      GetIt.instance.get<CustomBottomNavigationBloc>();
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments
-        as RadioStationScreenParameters;
-    radioStation = args.radioStation;
-
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.chevron_left),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => _customBottomNavigationBloc.add(
+            const LoadPageScreen(
+              pageScreen: PageScreen.home,
+              child: HomeScreen(),
+            ),
+          ),
         ),
         title: const Text('Now Playing'),
       ),
@@ -78,7 +55,7 @@ class _RadioStationScreenState extends State<RadioStationScreen> {
         child: BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
           bloc: _audioPlayerBloc,
           builder: (context, state) {
-            if (state is AudioPlayerStateInitial) {
+            if (state is! AudioPaused && state is! AudioPlaying) {
               _audioPlayerBloc.add(LoadAudioPlayer(radioStation: radioStation));
             }
             return AudioPlayer(

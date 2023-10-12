@@ -3,6 +3,8 @@ part of '../../home_screen.dart';
 class MiniAudioPlayer extends StatelessWidget {
   final AudioPlayerBloc _audioPlayerBloc =
       GetIt.instance.get<AudioPlayerBloc>();
+  final CustomBottomNavigationBloc _customBottomNavigationBloc =
+      GetIt.instance.get<CustomBottomNavigationBloc>();
 
   MiniAudioPlayer({
     super.key,
@@ -17,65 +19,75 @@ class MiniAudioPlayer extends StatelessWidget {
             (state is AudioPlaying || state is AudioPaused)) {
           return Positioned(
             bottom: 10,
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment(0.8, 1),
-                  colors: <Color>[
-                    Color(0xFFF5897F),
-                    Color(0xFFFF98A2),
-                    Color(0xFFFFA9C8),
-                    Color(0xFFFFBEF0),
-                  ],
-                  tileMode: TileMode.mirror,
+            child: InkWell(
+              onTap: () => _customBottomNavigationBloc.add(
+                LoadPageScreen(
+                  pageScreen: PageScreen.home,
+                  child: RadioStationScreen(
+                    radioStation: state.radioStation,
+                  ),
                 ),
-                borderRadius: BorderRadius.circular(10),
               ),
-              padding: const EdgeInsets.only(
-                left: 10,
-                top: 10,
-                right: 10,
-                bottom: 5,
-              ),
-              width: MediaQuery.of(context).size.width,
-              height: 80,
-              child: Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      state.radioStation.image,
-                      fit: BoxFit.cover,
-                    ),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment(0.8, 1),
+                    colors: <Color>[
+                      Color(0xFFF5897F),
+                      Color(0xFFFF98A2),
+                      Color(0xFFFFA9C8),
+                      Color(0xFFFFBEF0),
+                    ],
+                    tileMode: TileMode.mirror,
                   ),
-                  const SizedBox(width: 10),
-                  Text(
-                    state.radioStation.name.length > 20
-                        ? '${state.radioStation.name.substring(0, 20)}...'
-                        : state.radioStation.name,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      overflow: TextOverflow.ellipsis,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.only(
+                  left: 10,
+                  top: 10,
+                  right: 10,
+                  bottom: 5,
+                ),
+                width: MediaQuery.of(context).size.width,
+                height: 80,
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        state.radioStation.image,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  const Spacer(),
-                  if (state is AudioLoading) const LoadingBtn(iconSize: 32),
-                  if (state is AudioPaused || state is AudioPlaying)
-                    PlayPauseBtn(
-                      isPlaying: state is AudioPlaying,
+                    const SizedBox(width: 10),
+                    Text(
+                      state.radioStation.name.length > 20
+                          ? '${state.radioStation.name.substring(0, 20)}...'
+                          : state.radioStation.name,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const Spacer(),
+                    if (state is AudioLoading) const LoadingBtn(iconSize: 32),
+                    if (state is AudioPaused || state is AudioPlaying)
+                      PlayPauseBtn(
+                        isPlaying: state is AudioPlaying,
+                        bloc: _audioPlayerBloc,
+                        iconSize: 32,
+                        hasBackgroundColor: false,
+                      ),
+                    const SizedBox(width: 20),
+                    StopBtn(
                       bloc: _audioPlayerBloc,
-                      iconSize: 32,
-                      hasBackgroundColor: false,
-                    ),
-                  const SizedBox(width: 20),
-                  StopBtn(
-                    bloc: _audioPlayerBloc,
-                    iconSize: 14,
-                  )
-                ],
+                      iconSize: 14,
+                    )
+                  ],
+                ),
               ),
             ),
           );

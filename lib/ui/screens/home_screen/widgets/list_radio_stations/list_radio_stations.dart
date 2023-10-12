@@ -16,6 +16,8 @@ class ListRadioStations extends StatefulWidget {
 
 class _ListRadioStationsState extends State<ListRadioStations> {
   final ScrollController scrollController = ScrollController();
+  final CustomBottomNavigationBloc _customBottomNavigationBloc =
+      GetIt.instance.get<CustomBottomNavigationBloc>();
 
   @override
   void dispose() {
@@ -49,12 +51,12 @@ class _ListRadioStationsState extends State<ListRadioStations> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
                   child: InkWell(
-                    onTap: () => Navigator.of(context).pushNamed(
-                      RadioStationScreen.routeName,
-                      arguments: RadioStationScreenParameters(
+                    onTap: () => _customBottomNavigationBloc.add(LoadPageScreen(
+                      pageScreen: PageScreen.home,
+                      child: RadioStationScreen(
                         radioStation: widget.radioStations[index],
                       ),
-                    ),
+                    )),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

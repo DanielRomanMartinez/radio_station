@@ -30,12 +30,15 @@ class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
     radioStation = event.radioStation;
     emit(AudioLoading(radioStation));
 
-    await player.stop();
-    await player.setVolume(0.5);
-    await player.setUrl(event.radioStation.url);
-
-    player.play();
-    emit(AudioPlaying(radioStation));
+    try {
+      await player.stop();
+      await player.setVolume(0.5);
+      await player.setUrl(event.radioStation.url);
+      player.play();
+      emit(AudioPlaying(radioStation));
+    } on Exception catch (_) {
+      emit(AudioError(radioStation));
+    }
   }
 
   Future<void> _handlePause(

@@ -36,3 +36,7 @@ class AudioPaused extends AudioPlayerLoaded {
 class AudioStopped extends AudioPlayerLoaded {
   const AudioStopped(super.radioStation);
 }
+
+class AudioError extends AudioPlayerLoaded {
+  const AudioError(super.radioStation);
+}

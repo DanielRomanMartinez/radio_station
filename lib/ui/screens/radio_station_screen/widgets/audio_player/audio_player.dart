@@ -60,6 +60,13 @@ class AudioPlayer extends StatelessWidget {
                   isPlaying: state is AudioPlaying,
                   bloc: bloc,
                 );
+              } else if (state is AudioError) {
+                Fluttertoast.showToast(
+                  msg: "Something wrong happened, try again.",
+                  toastLength: Toast.LENGTH_LONG,
+                  gravity: ToastGravity.BOTTOM,
+                  backgroundColor: const Color(0xFFdc3545),
+                );
               }
 
               return const SizedBox.shrink();

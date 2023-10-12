@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:radio_station/application/bloc/audio_player/audio_player_bloc.dart';
+import 'package:radio_station/application/bloc/custom_bottom_navigation/custom_bottom_navigation_bloc.dart';
 import 'package:radio_station/application/bloc/home_screen/home_screen_bloc.dart';
 import 'package:radio_station/domain/model/objects/radio_station.dart';
 import 'package:radio_station/ui/common/widgets/loading_btn/loading_btn.dart';

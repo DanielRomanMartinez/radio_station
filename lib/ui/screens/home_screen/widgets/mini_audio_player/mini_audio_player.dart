@@ -23,7 +23,7 @@ class MiniAudioPlayer extends StatelessWidget {
                 border: Border(
                   top: BorderSide(
                     width: 2,
-                    color: Color.fromRGBO(248, 185, 154, 1),
+                    color: Color(0xFFF5897F),
                   ),
                 ),
               ),

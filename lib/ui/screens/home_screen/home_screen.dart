@@ -12,8 +12,6 @@ part 'widgets/list_radio_stations/list_radio_stations.dart';
 part 'widgets/mini_audio_player/mini_audio_player.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName = '/home';
-
   const HomeScreen({
     super.key,
   });

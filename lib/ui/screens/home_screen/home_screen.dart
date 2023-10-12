@@ -24,6 +24,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final ScrollController _scrollController = ScrollController();
   final HomeScreenBloc _homeScreenBloc = GetIt.instance.get<HomeScreenBloc>();
+  final AudioPlayerBloc _audioPlayer = GetIt.instance.get<AudioPlayerBloc>();
 
   @override
   void dispose() {
@@ -87,8 +88,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     padding: const EdgeInsets.only(left: 10),
                                     child: Text(
                                       state.radioStations[index].name.length >
-                                              15
-                                          ? '${state.radioStations[index].name.substring(0, 15)}...'
+                                              14
+                                          ? '${state.radioStations[index].name.substring(0, 14)}...'
                                           : state.radioStations[index].name,
                                       style: const TextStyle(
                                         color: Colors.white,
@@ -115,6 +116,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         },
                       ),
+                      BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+                        bloc: _audioPlayer,
+                        builder: (context, state) {
+                          if (state is AudioPlaying || state is AudioPaused) {
+                            return const SizedBox(height: 100);
+                          }
+                          return const SizedBox.shrink();
+                        },
+                      ),
                     ],
                   ),
                 );
@@ -122,10 +132,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
               _homeScreenBloc.add(const LoadHome());
 
-              return const Text(
-                'Loading...',
-                style: TextStyle(
-                  color: Colors.white,
+              return const Center(
+                child: Text(
+                  'Loading...',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               );
             },

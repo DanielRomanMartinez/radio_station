@@ -51,8 +51,8 @@ class MiniAudioPlayer extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   Text(
-                    state.radioStation.name.length > 15
-                        ? '${state.radioStation.name.substring(0, 15)}...'
+                    state.radioStation.name.length > 20
+                        ? '${state.radioStation.name.substring(0, 20)}...'
                         : state.radioStation.name,
                     style: const TextStyle(
                       color: Colors.white,

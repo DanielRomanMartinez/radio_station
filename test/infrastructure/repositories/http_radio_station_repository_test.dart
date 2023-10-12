@@ -62,7 +62,8 @@ void main() {
         ),
       );
 
-      expect(await repository.getAll(), isA<List<RadioStation>>());
+      expect(
+          await repository.getStationsByCountry(), isA<List<RadioStation>>());
     });
   });
 }

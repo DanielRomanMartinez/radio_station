@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
 import 'package:radio_station/domain/exceptions/radio_stations_not_found_exception.dart';
+import 'package:radio_station/domain/model/objects/country.dart';
 import 'package:radio_station/domain/model/objects/radio_station.dart';
 import 'package:radio_station/domain/model/value_object/response.dart';
 import 'package:radio_station/domain/repositories/radio_station_repository.dart';
@@ -30,10 +31,13 @@ class HttpRadioStationRepository implements RadioStationRepository {
   static const String scheme = 'https';
   static const String urlHost =
       'radio-world-75-000-worldwide-fm-radio-stations.p.rapidapi.com';
+
   static const String allStationsByCountry = '/station_by_country.php';
+  static const String getHomePage = '/get_home.php';
 
   @override
-  Future<List<RadioStation>> getAll({
+  Future<List<RadioStation>> getStationsByCountry({
+    int countryId = spainCountryId,
     int limit = 10,
     int page = 1,
   }) async {
@@ -47,7 +51,7 @@ class HttpRadioStationRepository implements RadioStationRepository {
         queryParameters: {
           'limit': limit.toString(),
           'page': page.toString(),
-          'country_id': spainCountryId.toString(),
+          'country_id': countryId.toString(),
         },
       ),
       headers: xRapidHeaders,
@@ -57,11 +61,58 @@ class HttpRadioStationRepository implements RadioStationRepository {
       List<dynamic> radioStationsApiResponse =
           jsonDecode(response.body)['stations'];
 
-      for (var radioStation in radioStationsApiResponse) {
+      for (final radioStation in radioStationsApiResponse) {
         radioStations.add(RadioStation.fromMap(radioStation));
       }
 
       return radioStations;
+    } else {
+      throw const RadioStationsNotFoundException();
+    }
+  }
+
+  @override
+  Future<Map<String, dynamic>> getHome() async {
+    final List<RadioStation> radioStations = [];
+    final List<Country> countries = [];
+    final List<Map<String, dynamic>> radioStationsByCountry = [];
+
+    final Response response = await _httpService.get(
+      Uri(
+        scheme: scheme,
+        host: urlHost,
+        path: getHomePage,
+      ),
+      headers: xRapidHeaders,
+    );
+
+    if (response.statusCode == 200) {
+      final apiResponse = jsonDecode(response.body);
+
+      List<dynamic> radioStationsApiResponse = apiResponse['featured'];
+      List<dynamic> countriesApiResponse = apiResponse['countries'];
+
+      for (final radioStation in radioStationsApiResponse) {
+        radioStations.add(RadioStation.fromMap(radioStation));
+      }
+
+      for (int i = 0; i < countriesApiResponse.length && i < 5; i++) {
+        countries.add(Country.fromMap(countriesApiResponse[i]));
+
+        radioStationsByCountry.add({
+          'country_name': countriesApiResponse[i]['country_name'],
+          'radio_stations': await getStationsByCountry(
+            countryId: int.parse(countriesApiResponse[i]['country_id']),
+            limit: 5,
+          ),
+        });
+      }
+
+      return {
+        "radio_stations": radioStations,
+        "countries": countries,
+        "radio_stations_by_country": radioStationsByCountry,
+      };
     } else {
       throw const RadioStationsNotFoundException();
     }

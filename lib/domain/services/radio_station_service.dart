@@ -10,9 +10,17 @@ class RadioStationService {
     this._quizRepository,
   );
 
-  Future<List<RadioStation>> getAll() async {
+  Future<List<RadioStation>> getStationsByCountry() async {
     try {
-      return await _quizRepository.getAll();
+      return await _quizRepository.getStationsByCountry();
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<Map<String, dynamic>> getHome() async {
+    try {
+      return await _quizRepository.getHome();
     } catch (_) {
       rethrow;
     }

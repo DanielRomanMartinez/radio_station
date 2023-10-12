@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:radio_station/application/bloc/home_screen/home_screen_bloc.dart';
+import 'package:radio_station/domain/model/objects/country.dart';
 import 'package:radio_station/domain/model/objects/radio_station.dart';
 import 'package:radio_station/domain/services/radio_station_service.dart';
 
@@ -20,22 +21,26 @@ void main() {
   group('Home Screen Bloc', () {
     // TODO: Generate MockGenerator RadioStation
 
-    final int id = faker.randomGenerator.integer(5);
-    final String name = faker.lorem.words(1).join('');
-    final String url = faker.lorem.words(5).join('-');
-    final String image = faker.lorem.words(5).join('');
-
     final List<RadioStation> radioStations = [
       RadioStation(
-        id: id,
-        name: name,
-        url: url,
-        image: image,
+        id: faker.randomGenerator.integer(5),
+        name: faker.lorem.words(1).join(''),
+        url: faker.lorem.words(5).join('-'),
+        image: faker.lorem.words(5).join(''),
+        genre: faker.lorem.words(5).join(''),
       ),
     ];
 
-    when(radioStationService.getAll())
-        .thenAnswer((_) => Future.value(radioStations));
+    final List<Country> countries = [
+      Country(
+        id: faker.randomGenerator.integer(5),
+        name: faker.lorem.words(1).join(''),
+        flag: faker.lorem.words(5).join('-'),
+        radioCount: faker.randomGenerator.integer(20).toString(),
+      ),
+    ];
+
+    when(radioStationService.getHome()).thenAnswer((_) => Future.value({}));
 
     blocTest(
       'Creating Bloc',
@@ -44,7 +49,7 @@ void main() {
       ),
       expect: () => [],
       verify: (_) {
-        verifyNever(radioStationService.getAll());
+        verifyNever(radioStationService.getStationsByCountry());
       },
     );
 
@@ -55,10 +60,14 @@ void main() {
       )..add(const LoadRadioStations()),
       expect: () => [
         const RadioStationsLoading(),
-        RadioStationsLoaded(radioStations: radioStations),
+        RadioStationsLoaded(
+          radioStations: radioStations,
+          countries: countries,
+          radioStationsByCountry: [],
+        ),
       ],
       verify: (_) {
-        verify(radioStationService.getAll()).called(1);
+        verify(radioStationService.getStationsByCountry()).called(1);
       },
     );
   });

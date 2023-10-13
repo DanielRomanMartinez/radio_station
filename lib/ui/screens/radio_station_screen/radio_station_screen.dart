@@ -22,7 +22,7 @@ part 'widgets/audio_player/audio_player_components/waves/wave.dart';
 part 'widgets/audio_player/audio_player_components/waves/waves.dart';
 part 'widgets/audio_player/audio_player_components/waves/waves_painter.dart';
 
-class RadioStationScreen extends StatelessWidget {
+class RadioStationScreen extends StatefulWidget {
   final RadioStation radioStation;
 
   RadioStationScreen({
@@ -30,8 +30,19 @@ class RadioStationScreen extends StatelessWidget {
     required this.radioStation,
   });
 
+  @override
+  State<RadioStationScreen> createState() => _RadioStationScreenState();
+}
+
+class _RadioStationScreenState extends State<RadioStationScreen> {
   final AudioPlayerBloc _audioPlayerBloc =
       GetIt.instance.get<AudioPlayerBloc>();
+
+  @override
+  void initState() {
+    _audioPlayerBloc.add(LoadAudioPlayer(radioStation: widget.radioStation));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +54,9 @@ class RadioStationScreen extends StatelessWidget {
       body: BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
         bloc: _audioPlayerBloc,
         builder: (context, state) {
-          if (state is! AudioPaused && state is! AudioPlaying) {
-            _audioPlayerBloc.add(LoadAudioPlayer(radioStation: radioStation));
-          }
           return AudioPlayer(
             isLoading: state is AudioPlayerStateInitial,
-            radioStation: radioStation,
+            radioStation: widget.radioStation,
             bloc: _audioPlayerBloc,
           );
         },

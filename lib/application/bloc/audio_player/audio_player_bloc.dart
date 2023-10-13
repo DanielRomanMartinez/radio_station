@@ -14,6 +14,7 @@ part 'audio_player_state.dart';
 class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
   final AudioPlayer player = AudioPlayer();
   late RadioStation radioStation;
+  bool isCurrentlyPlaying = false;
 
   AudioPlayerBloc() : super(const AudioPlayerStateInitial()) {
     on<LoadAudioPlayer>(_loadPlayer);
@@ -31,13 +32,14 @@ class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
     emit(AudioLoading(radioStation));
 
     try {
-      await player.stop();
+      if (isCurrentlyPlaying) await player.stop();
       await player.setVolume(0.5);
       await player.setUrl(event.radioStation.url);
       player.play();
       emit(AudioPlaying(radioStation));
+      isCurrentlyPlaying = true;
     } on Exception catch (_) {
-      emit(AudioError(radioStation));
+      emit(const AudioError());
     }
   }
 
@@ -47,6 +49,7 @@ class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
   ) async {
     await player.pause();
     emit(AudioPaused(radioStation));
+    isCurrentlyPlaying = false;
   }
 
   Future<void> _handlePlay(
@@ -55,6 +58,7 @@ class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
   ) async {
     player.play();
     emit(AudioPlaying(radioStation));
+    isCurrentlyPlaying = true;
   }
 
   Future<void> _handleSetVolume(
@@ -68,7 +72,10 @@ class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
     StopAudioPlayer event,
     Emitter<AudioPlayerState> emit,
   ) async {
-    await player.stop();
-    emit(const AudioStopped());
+    if (isCurrentlyPlaying) {
+      await player.stop();
+      emit(const AudioStopped());
+      isCurrentlyPlaying = false;
+    }
   }
 }

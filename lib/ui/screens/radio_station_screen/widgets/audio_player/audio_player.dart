@@ -88,7 +88,7 @@ class AudioPlayer extends StatelessWidget {
                   } else if (state is AudioError) {
                     Fluttertoast.showToast(
                       msg: "Something wrong happened, try again.",
-                      toastLength: Toast.LENGTH_LONG,
+                      toastLength: Toast.LENGTH_SHORT,
                       gravity: ToastGravity.BOTTOM,
                       backgroundColor: const Color(0xFFdc3545),
                     );

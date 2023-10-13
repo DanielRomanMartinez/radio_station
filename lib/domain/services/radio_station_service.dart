@@ -25,4 +25,13 @@ class RadioStationService {
       rethrow;
     }
   }
+
+  Future<List<RadioStation?>> search(String radioStationName) async {
+    try {
+      return await _radioStationRepository.search(
+          radioStationName: radioStationName);
+    } catch (_) {
+      rethrow;
+    }
+  }
 }

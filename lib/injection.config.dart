@@ -16,8 +16,9 @@ import 'application/bloc/audio_player/audio_player_bloc.dart' as _i3;
 import 'application/bloc/custom_bottom_navigation/custom_bottom_navigation_bloc.dart'
     as _i4;
 import 'application/bloc/favorite_screen/favorite_screen_bloc.dart' as _i12;
-import 'application/bloc/home_screen/home_screen_bloc.dart' as _i17;
-import 'application/bloc/splash_screen/splash_screen_bloc.dart' as _i16;
+import 'application/bloc/home_screen/home_screen_bloc.dart' as _i18;
+import 'application/bloc/search_screen/search_screen_bloc.dart' as _i16;
+import 'application/bloc/splash_screen/splash_screen_bloc.dart' as _i17;
 import 'domain/repositories/favorite_radio_station_repository.dart' as _i9;
 import 'domain/repositories/radio_station_repository.dart' as _i13;
 import 'domain/services/favorite_radio_station_service.dart' as _i11;
@@ -61,9 +62,11 @@ _i1.GetIt $initGetIt(
       ));
   gh.factory<_i15.RadioStationService>(
       () => _i15.RadioStationService(gh<_i13.RadioStationRepository>()));
-  gh.lazySingleton<_i16.SplashScreenBloc>(
-      () => _i16.SplashScreenBloc(gh<_i8.SplashService>()));
-  gh.lazySingleton<_i17.HomeScreenBloc>(
-      () => _i17.HomeScreenBloc(gh<_i15.RadioStationService>()));
+  gh.lazySingleton<_i16.SearchScreenBloc>(
+      () => _i16.SearchScreenBloc(gh<_i15.RadioStationService>()));
+  gh.lazySingleton<_i17.SplashScreenBloc>(
+      () => _i17.SplashScreenBloc(gh<_i8.SplashService>()));
+  gh.lazySingleton<_i18.HomeScreenBloc>(
+      () => _i18.HomeScreenBloc(gh<_i15.RadioStationService>()));
   return getIt;
 }

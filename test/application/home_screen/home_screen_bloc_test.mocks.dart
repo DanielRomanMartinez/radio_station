@@ -49,4 +49,14 @@ class MockRadioStationService extends _i1.Mock
         returnValue:
             _i3.Future<Map<String, dynamic>>.value(<String, dynamic>{}),
       ) as _i3.Future<Map<String, dynamic>>);
+  @override
+  _i3.Future<List<_i4.RadioStation?>> search(String? radioStationName) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #search,
+          [radioStationName],
+        ),
+        returnValue:
+            _i3.Future<List<_i4.RadioStation?>>.value(<_i4.RadioStation?>[]),
+      ) as _i3.Future<List<_i4.RadioStation?>>);
 }

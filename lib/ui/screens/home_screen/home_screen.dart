@@ -71,14 +71,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           state.radioStations.length,
                           (index) {
                             return InkWell(
-                              onTap: () => _customBottomNavigationBloc.add(
-                                LoadPageScreen(
-                                  pageScreen: PageScreen.home,
-                                  child: RadioStationScreen(
-                                    radioStation: state.radioStations[index],
+                              onTap: () {
+                                _audioPlayer.add(const StopAudioPlayer());
+                                _customBottomNavigationBloc.add(
+                                  LoadPageScreen(
+                                    pageScreen: PageScreen.home,
+                                    child: RadioStationScreen(
+                                      radioStation: state.radioStations[index],
+                                    ),
                                   ),
-                                ),
-                              ),
+                                );
+                              },
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),

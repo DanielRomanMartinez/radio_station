@@ -19,6 +19,9 @@ class _ListRadioStationsState extends State<ListRadioStations> {
   final CustomBottomNavigationBloc _customBottomNavigationBloc =
       GetIt.instance.get<CustomBottomNavigationBloc>();
 
+  final AudioPlayerBloc _audioPlayerBloc =
+      GetIt.instance.get<AudioPlayerBloc>();
+
   @override
   void dispose() {
     scrollController.dispose();
@@ -51,14 +54,17 @@ class _ListRadioStationsState extends State<ListRadioStations> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
                   child: InkWell(
-                    onTap: () => _customBottomNavigationBloc.add(
-                      LoadPageScreen(
-                        pageScreen: PageScreen.home,
-                        child: RadioStationScreen(
-                          radioStation: widget.radioStations[index],
+                    onTap: () {
+                      _audioPlayerBloc.add(const StopAudioPlayer());
+                      _customBottomNavigationBloc.add(
+                        LoadPageScreen(
+                          pageScreen: PageScreen.home,
+                          child: RadioStationScreen(
+                            radioStation: widget.radioStations[index],
+                          ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

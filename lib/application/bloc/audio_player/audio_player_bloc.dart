@@ -69,6 +69,6 @@ class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
     Emitter<AudioPlayerState> emit,
   ) async {
     await player.stop();
-    emit(AudioStopped(radioStation));
+    emit(const AudioStopped());
   }
 }

@@ -37,6 +37,7 @@ class HttpRadioStationRepository implements RadioStationRepository {
 
   static const String allStationsByCountry = '/station_by_country.php';
   static const String getHomePage = '/get_home.php';
+  static const String searchRadio = '/search_radio.php';
 
   @override
   Future<List<RadioStation>> getStationsByCountry({
@@ -143,6 +144,55 @@ class HttpRadioStationRepository implements RadioStationRepository {
         "countries": countries,
         "radio_stations_by_country": radioStationsByCountry,
       };
+    } else {
+      throw const RadioStationsNotFoundException();
+    }
+  }
+
+  @override
+  Future<List<RadioStation?>> search({
+    required String radioStationName,
+    int limit = 10,
+    int page = 1,
+  }) async {
+    final List<RadioStation> radioStations = [];
+
+    final Response response = await _httpService.get(
+      Uri(
+        scheme: scheme,
+        host: urlHost,
+        path: searchRadio,
+        queryParameters: {
+          'limit': limit.toString(),
+          'page': page.toString(),
+          'keyword': radioStationName,
+        },
+      ),
+      headers: xRapidHeaders,
+    );
+
+    if (response.statusCode == 200) {
+      List<dynamic> radioStationsApiResponse =
+          jsonDecode(response.body)['stations'];
+
+      for (final radioStation in radioStationsApiResponse) {
+        Country country = Country.fromMap(radioStation);
+
+        radioStation.addAll({
+          'country': country,
+        });
+
+        final response = await _favoriteRadioStationRepository.read(
+            id: int.parse(radioStation['radio_id']));
+
+        radioStation.addAll({
+          'is_favorite': response != null,
+        });
+
+        radioStations.add(RadioStation.fromMap(radioStation));
+      }
+
+      return radioStations;
     } else {
       throw const RadioStationsNotFoundException();
     }

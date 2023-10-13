@@ -24,6 +24,7 @@ class HiveProvider {
       }
     } else if (_isInitializing) {
       await Future<void>.delayed(const Duration(milliseconds: 100));
+      // ignore: recursive_getters
       await database;
     }
 

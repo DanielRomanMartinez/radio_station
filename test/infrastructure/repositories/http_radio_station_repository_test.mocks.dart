@@ -6,7 +6,10 @@
 import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:radio_station/domain/model/objects/radio_station.dart' as _i6;
 import 'package:radio_station/domain/model/value_object/response.dart' as _i2;
+import 'package:radio_station/domain/repositories/favorite_radio_station_repository.dart'
+    as _i5;
 import 'package:radio_station/domain/services/http_service.dart' as _i3;
 
 // ignore_for_file: type=lint
@@ -58,4 +61,52 @@ class MockHttpService extends _i1.Mock implements _i3.HttpService {
           ),
         )),
       ) as _i4.Future<_i2.Response>);
+}
+
+/// A class which mocks [FavoriteRadioStationRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockFavoriteRadioStationRepository extends _i1.Mock
+    implements _i5.FavoriteRadioStationRepository {
+  MockFavoriteRadioStationRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<_i6.RadioStation?> read({required int? id}) => (super.noSuchMethod(
+        Invocation.method(
+          #read,
+          [],
+          {#id: id},
+        ),
+        returnValue: _i4.Future<_i6.RadioStation?>.value(),
+      ) as _i4.Future<_i6.RadioStation?>);
+  @override
+  _i4.Future<void> addFavorite(_i6.RadioStation? radioStation) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #addFavorite,
+          [radioStation],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<void> removeFavorite(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #removeFavorite,
+          [id],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<List<_i6.RadioStation>> getFavorites() => (super.noSuchMethod(
+        Invocation.method(
+          #getFavorites,
+          [],
+        ),
+        returnValue:
+            _i4.Future<List<_i6.RadioStation>>.value(<_i6.RadioStation>[]),
+      ) as _i4.Future<List<_i6.RadioStation>>);
 }

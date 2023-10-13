@@ -21,26 +21,45 @@ void main() {
   group('Home Screen Bloc', () {
     // TODO: Generate MockGenerator RadioStation
 
-    final List<RadioStation> radioStations = [
-      RadioStation(
-        id: faker.randomGenerator.integer(5),
-        name: faker.lorem.words(1).join(''),
-        url: faker.lorem.words(5).join('-'),
-        image: faker.lorem.words(5).join(''),
-        genre: faker.lorem.words(5).join(''),
-      ),
-    ];
+    final Country country = Country(
+      id: faker.randomGenerator.integer(5),
+      name: faker.lorem.words(1).join(''),
+      flag: faker.lorem.words(5).join('-'),
+      radioCount: faker.randomGenerator.integer(20).toString(),
+    );
+
+    final RadioStation radioStation = RadioStation(
+      id: faker.randomGenerator.integer(5),
+      name: faker.lorem.words(1).join(''),
+      url: faker.lorem.words(5).join('-'),
+      image: faker.lorem.words(5).join(''),
+      genre: faker.lorem.words(5).join(''),
+      country: country,
+      isFavorite: false,
+    );
 
     final List<Country> countries = [
-      Country(
-        id: faker.randomGenerator.integer(5),
-        name: faker.lorem.words(1).join(''),
-        flag: faker.lorem.words(5).join('-'),
-        radioCount: faker.randomGenerator.integer(20).toString(),
-      ),
+      country,
     ];
 
-    when(radioStationService.getHome()).thenAnswer((_) => Future.value({}));
+    final List<RadioStation> radioStations = [
+      radioStation,
+    ];
+
+    final List<Map<String, dynamic>> radioStationsByCountry = [
+      {
+        'country_name': country.name,
+        'radio_stations': radioStations,
+      },
+    ];
+
+    when(radioStationService.getHome()).thenAnswer(
+      (_) => Future.value({
+        "radio_stations": radioStations,
+        "countries": countries,
+        "radio_stations_by_country": radioStationsByCountry,
+      }),
+    );
 
     blocTest(
       'Creating Bloc',
@@ -57,17 +76,17 @@ void main() {
       'Send Load Event',
       build: () => HomeScreenBloc(
         radioStationService,
-      )..add(const LoadRadioStations()),
+      )..add(const LoadHome()),
       expect: () => [
-        const RadioStationsLoading(),
-        RadioStationsLoaded(
+        const HomeLoading(),
+        HomeLoaded(
           radioStations: radioStations,
           countries: countries,
-          radioStationsByCountry: [],
+          radioStationsByCountry: radioStationsByCountry,
         ),
       ],
       verify: (_) {
-        verify(radioStationService.getStationsByCountry()).called(1);
+        verify(radioStationService.getHome()).called(1);
       },
     );
   });

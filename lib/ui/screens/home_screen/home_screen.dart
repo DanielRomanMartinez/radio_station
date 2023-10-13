@@ -26,6 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final ScrollController _scrollController = ScrollController();
   final HomeScreenBloc _homeScreenBloc = GetIt.instance.get<HomeScreenBloc>();
   final AudioPlayerBloc _audioPlayer = GetIt.instance.get<AudioPlayerBloc>();
+  final CustomBottomNavigationBloc _customBottomNavigationBloc =
+      GetIt.instance.get<CustomBottomNavigationBloc>();
 
   @override
   void dispose() {
@@ -68,36 +70,46 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: List.generate(
                           state.radioStations.length,
                           (index) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.blueGrey,
-                              ),
-                              child: Row(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(5),
-                                      topLeft: Radius.circular(5),
-                                    ),
-                                    child: Image.network(
-                                      state.radioStations[index].image,
-                                      fit: BoxFit.cover,
-                                    ),
+                            return InkWell(
+                              onTap: () => _customBottomNavigationBloc.add(
+                                LoadPageScreen(
+                                  pageScreen: PageScreen.home,
+                                  child: RadioStationScreen(
+                                    radioStation: state.radioStations[index],
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      state.radioStations[index].name.length >
-                                              14
-                                          ? '${state.radioStations[index].name.substring(0, 14)}...'
-                                          : state.radioStations[index].name,
-                                      style: const TextStyle(
-                                        color: Colors.white,
+                                ),
+                              ),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Colors.blueGrey,
+                                ),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(5),
+                                        topLeft: Radius.circular(5),
+                                      ),
+                                      child: Image.network(
+                                        state.radioStations[index].image,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        state.radioStations[index].name.length >
+                                                12
+                                            ? '${state.radioStations[index].name.substring(0, 12)}...'
+                                            : state.radioStations[index].name,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           },

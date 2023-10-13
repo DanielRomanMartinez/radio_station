@@ -4,15 +4,15 @@ import 'package:radio_station/domain/repositories/radio_station_repository.dart'
 
 @injectable
 class RadioStationService {
-  final RadioStationRepository _quizRepository;
+  final RadioStationRepository _radioStationRepository;
 
   const RadioStationService(
-    this._quizRepository,
+    this._radioStationRepository,
   );
 
   Future<List<RadioStation>> getStationsByCountry() async {
     try {
-      return await _quizRepository.getStationsByCountry();
+      return await _radioStationRepository.getStationsByCountry();
     } catch (_) {
       rethrow;
     }
@@ -20,7 +20,7 @@ class RadioStationService {
 
   Future<Map<String, dynamic>> getHome() async {
     try {
-      return await _quizRepository.getHome();
+      return await _radioStationRepository.getHome();
     } catch (_) {
       rethrow;
     }

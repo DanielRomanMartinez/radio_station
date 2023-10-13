@@ -5,7 +5,7 @@ import 'package:mockito/mockito.dart';
 import 'package:radio_station/domain/model/objects/radio_station.dart';
 import 'package:radio_station/domain/model/value_object/response.dart';
 import 'package:radio_station/domain/services/http_service.dart';
-import 'package:radio_station/infrastructure/repositories/http_radio_station_repository.dart';
+import 'package:radio_station/infrastructure/repositories/http/http_radio_station_repository.dart';
 
 import 'http_radio_station_repository_test.mocks.dart';
 

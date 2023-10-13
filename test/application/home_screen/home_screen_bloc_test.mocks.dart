@@ -31,12 +31,22 @@ class MockRadioStationService extends _i1.Mock
   }
 
   @override
-  _i3.Future<List<_i4.RadioStation>> getAll() => (super.noSuchMethod(
+  _i3.Future<List<_i4.RadioStation>> getStationsByCountry() =>
+      (super.noSuchMethod(
         Invocation.method(
-          #getAll,
+          #getStationsByCountry,
           [],
         ),
         returnValue:
             _i3.Future<List<_i4.RadioStation>>.value(<_i4.RadioStation>[]),
       ) as _i3.Future<List<_i4.RadioStation>>);
+  @override
+  _i3.Future<Map<String, dynamic>> getHome() => (super.noSuchMethod(
+        Invocation.method(
+          #getHome,
+          [],
+        ),
+        returnValue:
+            _i3.Future<Map<String, dynamic>>.value(<String, dynamic>{}),
+      ) as _i3.Future<Map<String, dynamic>>);
 }

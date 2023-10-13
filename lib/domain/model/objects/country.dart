@@ -5,13 +5,13 @@ class Country extends Equatable {
   final int id;
   final String name;
   final String flag;
-  final String radioCount;
+  final String? radioCount;
 
   const Country({
     required this.id,
     required this.name,
     required this.flag,
-    required this.radioCount,
+    this.radioCount,
   });
 
   @override
@@ -32,8 +32,7 @@ class Country extends Equatable {
   factory Country.fromMap(Map<String, dynamic> map) {
     if (map['country_id'] is! String ||
         map['country_name'] is! String ||
-        map['country_flag'] is! String ||
-        map['radio_count'] is! String) {
+        map['country_flag'] is! String) {
       throw MalformedCountryMapException(map);
     }
 

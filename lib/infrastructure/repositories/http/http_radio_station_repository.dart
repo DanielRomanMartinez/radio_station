@@ -5,15 +5,18 @@ import 'package:radio_station/domain/exceptions/radio_stations_not_found_excepti
 import 'package:radio_station/domain/model/objects/country.dart';
 import 'package:radio_station/domain/model/objects/radio_station.dart';
 import 'package:radio_station/domain/model/value_object/response.dart';
+import 'package:radio_station/domain/repositories/favorite_radio_station_repository.dart';
 import 'package:radio_station/domain/repositories/radio_station_repository.dart';
 import 'package:radio_station/domain/services/http_service.dart';
 
 @Injectable(as: RadioStationRepository)
 class HttpRadioStationRepository implements RadioStationRepository {
   final HttpService _httpService;
+  final FavoriteRadioStationRepository _favoriteRadioStationRepository;
 
   HttpRadioStationRepository(
     this._httpService,
+    this._favoriteRadioStationRepository,
   );
 
   static const String urlAllRadiosFromCountry =
@@ -62,6 +65,19 @@ class HttpRadioStationRepository implements RadioStationRepository {
           jsonDecode(response.body)['stations'];
 
       for (final radioStation in radioStationsApiResponse) {
+        Country country = Country.fromMap(radioStation);
+
+        radioStation.addAll({
+          'country': country,
+        });
+
+        final response = await _favoriteRadioStationRepository.read(
+            id: int.parse(radioStation['radio_id']));
+
+        radioStation.addAll({
+          'is_favorite': response != null,
+        });
+
         radioStations.add(RadioStation.fromMap(radioStation));
       }
 
@@ -92,7 +108,21 @@ class HttpRadioStationRepository implements RadioStationRepository {
       List<dynamic> radioStationsApiResponse = apiResponse['featured'];
       List<dynamic> countriesApiResponse = apiResponse['countries'];
 
-      for (final radioStation in radioStationsApiResponse) {
+      for (final Map<String, dynamic> radioStation
+          in radioStationsApiResponse) {
+        Country country = Country.fromMap(radioStation);
+
+        radioStation.addAll({
+          'country': country,
+        });
+
+        final response = await _favoriteRadioStationRepository.read(
+            id: int.parse(radioStation['radio_id']));
+
+        radioStation.addAll({
+          'is_favorite': response != null,
+        });
+
         radioStations.add(RadioStation.fromMap(radioStation));
       }
 

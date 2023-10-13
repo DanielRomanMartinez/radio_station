@@ -51,12 +51,14 @@ class _ListRadioStationsState extends State<ListRadioStations> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
                   child: InkWell(
-                    onTap: () => _customBottomNavigationBloc.add(LoadPageScreen(
-                      pageScreen: PageScreen.home,
-                      child: RadioStationScreen(
-                        radioStation: widget.radioStations[index],
+                    onTap: () => _customBottomNavigationBloc.add(
+                      LoadPageScreen(
+                        pageScreen: PageScreen.home,
+                        child: RadioStationScreen(
+                          radioStation: widget.radioStations[index],
+                        ),
                       ),
-                    )),
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

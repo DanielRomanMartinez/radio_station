@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:radio_station/application/bloc/audio_player/audio_player_bloc.dart';
+import 'package:radio_station/application/bloc/custom_bottom_navigation/custom_bottom_navigation_bloc.dart';
 import 'package:radio_station/application/bloc/home_screen/home_screen_bloc.dart';
+import 'package:radio_station/domain/model/objects/radio_station.dart';
 import 'package:radio_station/ui/common/widgets/loading_btn/loading_btn.dart';
 import 'package:radio_station/ui/common/widgets/play_pause_btn/play_pause_btn.dart';
 import 'package:radio_station/ui/common/widgets/stop_btn/stop_btn.dart';
@@ -12,8 +14,6 @@ part 'widgets/list_radio_stations/list_radio_stations.dart';
 part 'widgets/mini_audio_player/mini_audio_player.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String routeName = '/home';
-
   const HomeScreen({
     super.key,
   });
@@ -23,11 +23,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final ScrollController scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
+  final HomeScreenBloc _homeScreenBloc = GetIt.instance.get<HomeScreenBloc>();
+  final AudioPlayerBloc _audioPlayer = GetIt.instance.get<AudioPlayerBloc>();
+  final CustomBottomNavigationBloc _customBottomNavigationBloc =
+      GetIt.instance.get<CustomBottomNavigationBloc>();
 
   @override
   void dispose() {
-    scrollController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -45,7 +49,115 @@ class _HomeScreenState extends State<HomeScreen> {
         alignment: Alignment.center,
         fit: StackFit.expand,
         children: [
-          const ListRadioStations(),
+          BlocBuilder<HomeScreenBloc, HomeScreenState>(
+            bloc: _homeScreenBloc,
+            builder: (context, state) {
+              if (state is HomeLoaded) {
+                return SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const SizedBox(height: 20),
+                      GridView.count(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 15,
+                        childAspectRatio: state.radioStations.length / 2.5,
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        physics: const ScrollPhysics(),
+                        children: List.generate(
+                          state.radioStations.length,
+                          (index) {
+                            return InkWell(
+                              onTap: () {
+                                _audioPlayer.add(const StopAudioPlayer());
+                                _customBottomNavigationBloc.add(
+                                  LoadPageScreen(
+                                    pageScreen: PageScreen.home,
+                                    child: RadioStationScreen(
+                                      radioStation: state.radioStations[index],
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Colors.blueGrey,
+                                ),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(5),
+                                        topLeft: Radius.circular(5),
+                                      ),
+                                      child: Image.network(
+                                        state.radioStations[index].image,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        state.radioStations[index].name.length >
+                                                12
+                                            ? '${state.radioStations[index].name.substring(0, 12)}...'
+                                            : state.radioStations[index].name,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: state.radioStationsByCountry.length,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (_, int i) {
+                          return ListRadioStations(
+                            title:
+                                '${state.radioStationsByCountry[i]['country_name']}',
+                            radioStations: state.radioStationsByCountry[i]
+                                ['radio_stations'],
+                          );
+                        },
+                      ),
+                      BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+                        bloc: _audioPlayer,
+                        builder: (context, state) {
+                          if (state is AudioPlaying || state is AudioPaused) {
+                            return const SizedBox(height: 100);
+                          }
+                          return const SizedBox.shrink();
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              }
+
+              _homeScreenBloc.add(const LoadHome());
+
+              return const Center(
+                child: Text(
+                  'Loading...',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              );
+            },
+          ),
           MiniAudioPlayer(),
         ],
       ),

@@ -8,7 +8,7 @@ class StopBtn extends StatelessWidget {
   const StopBtn({
     super.key,
     required this.bloc,
-    this.iconSize = 12,
+    this.iconSize = 14,
   });
 
   @override
@@ -19,7 +19,7 @@ class StopBtn extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
-            color: Colors.grey,
+            color: Color(0xFF73638E),
             borderRadius: BorderRadius.all(
               Radius.circular(100),
             ),

@@ -13,14 +13,24 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'application/bloc/audio_player/audio_player_bloc.dart' as _i3;
-import 'application/bloc/home_screen/home_screen_bloc.dart' as _i10;
-import 'application/bloc/splash_screen/splash_screen_bloc.dart' as _i11;
-import 'domain/repositories/radio_station_repository.dart' as _i6;
-import 'domain/services/http_service.dart' as _i4;
-import 'domain/services/radio_station_service.dart' as _i8;
-import 'domain/services/ui/splash_service.dart' as _i9;
-import 'infrastructure/repositories/http_radio_station_repository.dart' as _i7;
-import 'infrastructure/services/http_service.dart' as _i5;
+import 'application/bloc/custom_bottom_navigation/custom_bottom_navigation_bloc.dart'
+    as _i4;
+import 'application/bloc/favorite_screen/favorite_screen_bloc.dart' as _i12;
+import 'application/bloc/home_screen/home_screen_bloc.dart' as _i18;
+import 'application/bloc/search_screen/search_screen_bloc.dart' as _i16;
+import 'application/bloc/splash_screen/splash_screen_bloc.dart' as _i17;
+import 'domain/repositories/favorite_radio_station_repository.dart' as _i9;
+import 'domain/repositories/radio_station_repository.dart' as _i13;
+import 'domain/services/favorite_radio_station_service.dart' as _i11;
+import 'domain/services/http_service.dart' as _i6;
+import 'domain/services/radio_station_service.dart' as _i15;
+import 'domain/services/ui/splash_service.dart' as _i8;
+import 'infrastructure/providers/hive_provider.dart' as _i5;
+import 'infrastructure/repositories/hive/hive_favorite_radio_station_repository.dart'
+    as _i10;
+import 'infrastructure/repositories/http/http_radio_station_repository.dart'
+    as _i14;
+import 'infrastructure/services/http_service.dart' as _i7;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -34,15 +44,29 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   gh.lazySingleton<_i3.AudioPlayerBloc>(() => _i3.AudioPlayerBloc());
-  gh.factory<_i4.HttpService>(() => _i5.FlutterHttpService());
-  gh.factory<_i6.RadioStationRepository>(
-      () => _i7.HttpRadioStationRepository(gh<_i4.HttpService>()));
-  gh.factory<_i8.RadioStationService>(
-      () => _i8.RadioStationService(gh<_i6.RadioStationRepository>()));
-  gh.factory<_i9.SplashService>(() => const _i9.SplashService());
-  gh.lazySingleton<_i10.HomeScreenBloc>(
-      () => _i10.HomeScreenBloc(gh<_i8.RadioStationService>()));
-  gh.lazySingleton<_i11.SplashScreenBloc>(
-      () => _i11.SplashScreenBloc(gh<_i9.SplashService>()));
+  gh.lazySingleton<_i4.CustomBottomNavigationBloc>(
+      () => _i4.CustomBottomNavigationBloc());
+  gh.lazySingleton<_i5.HiveProvider>(() => _i5.HiveProvider());
+  gh.factory<_i6.HttpService>(() => _i7.FlutterHttpService());
+  gh.factory<_i8.SplashService>(() => const _i8.SplashService());
+  gh.lazySingleton<_i9.FavoriteRadioStationRepository>(
+      () => _i10.HiveFavoriteRadioStationRepository(gh<_i5.HiveProvider>()));
+  gh.factory<_i11.FavoriteRadioStationService>(() =>
+      _i11.FavoriteRadioStationService(
+          gh<_i9.FavoriteRadioStationRepository>()));
+  gh.lazySingleton<_i12.FavoriteScreenBloc>(
+      () => _i12.FavoriteScreenBloc(gh<_i11.FavoriteRadioStationService>()));
+  gh.factory<_i13.RadioStationRepository>(() => _i14.HttpRadioStationRepository(
+        gh<_i6.HttpService>(),
+        gh<_i9.FavoriteRadioStationRepository>(),
+      ));
+  gh.factory<_i15.RadioStationService>(
+      () => _i15.RadioStationService(gh<_i13.RadioStationRepository>()));
+  gh.lazySingleton<_i16.SearchScreenBloc>(
+      () => _i16.SearchScreenBloc(gh<_i15.RadioStationService>()));
+  gh.lazySingleton<_i17.SplashScreenBloc>(
+      () => _i17.SplashScreenBloc(gh<_i8.SplashService>()));
+  gh.lazySingleton<_i18.HomeScreenBloc>(
+      () => _i18.HomeScreenBloc(gh<_i15.RadioStationService>()));
   return getIt;
 }

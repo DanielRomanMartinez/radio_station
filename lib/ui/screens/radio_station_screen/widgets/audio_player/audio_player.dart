@@ -48,22 +48,62 @@ class AudioPlayer extends StatelessWidget {
             ),
           ),
           const SizedBox(
+            height: 10,
+          ),
+          Text(
+            'Radio from: ${radioStation.country.name}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            'Genre: ${radioStation.genre}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+            ),
+          ),
+          const SizedBox(
             height: 50,
           ),
-          BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
-            bloc: bloc,
-            builder: (context, state) {
-              if (state is AudioLoading) {
-                return const LoadingBtn();
-              } else if (state is AudioPaused || state is AudioPlaying) {
-                return PlayPauseBtn(
-                  isPlaying: state is AudioPlaying,
-                  bloc: bloc,
-                );
-              }
+          Stack(
+            alignment: AlignmentDirectional.centerEnd,
+            children: [
+              BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+                bloc: bloc,
+                builder: (context, state) {
+                  if (state is AudioLoading) {
+                    return const LoadingBtn();
+                  } else if (state is AudioPaused || state is AudioPlaying) {
+                    return PlayPauseBtn(
+                      isPlaying: state is AudioPlaying,
+                      bloc: bloc,
+                    );
+                  } else if (state is AudioError) {
+                    Fluttertoast.showToast(
+                      msg: "Something wrong happened, try again.",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      backgroundColor: const Color(0xFFdc3545),
+                    );
+                  }
 
-              return const SizedBox.shrink();
-            },
+                  return const SizedBox.shrink();
+                },
+              ),
+              Positioned(
+                right: (MediaQuery.of(context).size.width - 40) / 5,
+                child: FavButton(
+                  radioStation: radioStation,
+                ),
+              ),
+            ],
           ),
         ],
       ),
